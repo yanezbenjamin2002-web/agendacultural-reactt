@@ -41,7 +41,7 @@ function App() {
   return (
     <main className="app">
       <h1>Agenda Cultural</h1>
-      <p>Eventos disponibles:</p>
+      <p><strong>Eventos disponibles:</strong> {eventosFiltrados.length}</p>
 
       <input
         type="text"

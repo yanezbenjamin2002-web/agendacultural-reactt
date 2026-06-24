@@ -1,0 +1,87 @@
+IA.txt
+Prompt:
+importa el array en App.jsx y verifica que carga en la consola (console.log) y muestralos en el local host.
+
+Utilidad:
+muestra los eventos en el localhost en el navegador, muestra los datos de eventos.js en la consola gracias al console.log
+
+Prompt:
+el componente EventoCard.jsx debe recibir los props de nombre, lugar, duracion, tipo, descripcion y fecha. muestra la informacion ordenadamente
+
+Utilidad:
+en la app web se muestra ordenadamente los nombres, tipo, lugar, duración, descripción y fecha de cada evento.
+
+Prompt:
+aplica un estilo diferenciado para tipo de concierto para poder diferenciarlos entre si, aplica un estilo diferenciado segun el tipo (un color y estilo para concierto, teatro y exposicion ).
+
+Utilidad:
+si funciono ya que se creo un estilo para cada tipo de evento que permite diferenciarlos.
+
+Prompt:
+Agrega validación de props con PropTypes en el componente EventoCard.jsx y entrega valores por defecto para evitar errores si falta algún dato. Asegúrate de que el texto se renderice como JSX normal y no uses `dangerouslySetInnerHTML.
+
+Utilidad:
+funciono aunque dio problemas de import prop-types pero al instalar los prop-types npm y reiniciar servidor la app web se muestra correctamente.
+
+Prompt:
+ListaEventos debe recibir un array de eventos por props. usa .map() para renderizar un EventoCard por cada evento.
+
+Utilidad:
+se creo el componente de lista que recibe el array por props y renderiza la tarjeta por cada eventos.
+
+Prompt:
+asigna la prop key usando el id del evento y pasale los datos como props y en el componente App.jsx renderiza ListaEventos pasandole los datos importados.
+
+Utilidad:
+Ahora la ListaEventos.jsx usa el id del evento como key. y cada dato pasa a EventoCard mediante props y en App.jsx se renderiza ListaEventos.jsx con los datos d e los evento simportados desde eventos.js
+
+Prompt:
+en filtro tipo crea botones para filtrar por tipo de evento ("Todos", "concierto", "teatro", "exposicion") en App..jsx usa useState para guardar el filtro y texto de busqueda aplica los 2 filtros sobre el array de ListaEventos.jsx. si la busqueda no coincide mostrar mensaje: "No hay eventos que coincidan"
+
+Utilidad:
+Funciono ya los eventos se filtran por su tipo, pero error al filtrar por exposición no aparece ningún evento. pero al poner un texto que no coincide con los eventos muestra el mensaje: "No hay eventos que coincidan".
+
+Prompt:
+el filtro de exposicion no filtra bien los resultados
+
+Utilidad:
+Ahora si filtra correctamente los eventos de exposición.
+
+Prompt:
+haz que el campo de busqueda sea un componente controlado en react. y valida el texto recortando espacios y limitando su largo antes de usarlo
+ 
+Utilidad:
+el campo de búsqueda ahora funciona como un input controlado en react y el texto que se entrega se valida antes de usarse:
+- se recorta espacios al inicio y final
+- se limita a 30caracteres
+error no permite usar espacios si quiero buscar "Concierto de primavera", no me deja por que no permite usar espacios "Conciertode"
+
+Prompt:
+no deja usar espacios para hacer una búsqueda.
+
+Utilidad:
+Ahora si deja usar espacio solo limita la longitud (30 caracteres).
+
+Prompt:
+destaca los eventos que sean gratuitos es decir, los eventos que tenga la propiedad esGratuito: true y crea un contador para mostrar cuantos hay.
+
+Utilidad:
+se muestra en las tarjetas que son gratis un badge que dice "Gratis" y se creo el contador que muestra cuantos eventos son gratis.
+
+Prompt:
+puedes poner ese contador de eventos gratuitos en el otro extremo de los filtros
+
+Utilidad:
+Cambiar de posición el contador para evitar confusiones. 
+
+Prompts:
+revisa errores en la app web y warnings en consola
+
+Utilidad:
+copilot reviso si el navegador reporta advertencias en la app web, "No errors found" en el editor .
+
+Prompt:
+agrega un contador en el texto eventos disponibles
+
+Utilidad:
+fue util para poder contar los eventos que esten disponibles
