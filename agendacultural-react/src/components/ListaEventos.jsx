@@ -13,6 +13,7 @@ function ListaEventos({ eventos }) {
           tipo={evento.tipo}
           descripcion={evento.descripcion}
           fecha={evento.fechas?.join(', ') || 'Fecha no disponible'}
+          esGratuito={evento.esGratuito}
         />
       ))}
     </section>

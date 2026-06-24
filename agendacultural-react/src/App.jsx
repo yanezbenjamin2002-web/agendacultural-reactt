@@ -36,6 +36,7 @@ function App() {
   })
 
   const mostrarMensaje = eventosFiltrados.length === 0 && (busqueda.trim() !== '' || filtroTipo !== 'todos')
+  const eventosGratis = eventos.filter((evento) => evento.esGratuito).length
 
   return (
     <main className="app">
@@ -50,7 +51,10 @@ function App() {
         style={{ padding: '8px 12px', marginBottom: '12px', width: '100%', maxWidth: '320px' }}
       />
 
-      <FiltroTipo filtroActual={filtroTipo} onCambiarFiltro={setFiltroTipo} />
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '12px', flexWrap: 'wrap', marginBottom: '16px' }}>
+        <FiltroTipo filtroActual={filtroTipo} onCambiarFiltro={setFiltroTipo} />
+        <p style={{ margin: 0 }}><strong>Eventos gratuitos:</strong> {eventosGratis}</p>
+      </div>
 
       {mostrarMensaje ? (
         <p>No hay eventos que coincidan</p>

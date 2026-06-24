@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-function EventoCard({ nombre, lugar, duracion, tipo, descripcion, fecha }) {
+function EventoCard({ nombre, lugar, duracion, tipo, descripcion, fecha, esGratuito }) {
   const duracionNumero = Number(duracion)
   const duracionTexto = Number.isFinite(duracionNumero) && duracionNumero > 0 ? `${duracionNumero} min` : 'Sin duración'
   const tipoTexto = tipo || 'Sin tipo'
@@ -34,6 +34,14 @@ function EventoCard({ nombre, lugar, duracion, tipo, descripcion, fecha }) {
     boxShadow: 'none'
   }
 
+  const estiloGratuito = esGratuito
+    ? {
+        borderColor: '#16a34a',
+        backgroundColor: '#f0fdf4',
+        boxShadow: '0 2px 10px rgba(22, 163, 74, 0.2)'
+      }
+    : {}
+
   return (
     <article
       style={{
@@ -42,14 +50,22 @@ function EventoCard({ nombre, lugar, duracion, tipo, descripcion, fecha }) {
         padding: '16px',
         marginBottom: '12px',
         backgroundColor: estilo.backgroundColor,
-        boxShadow: estilo.boxShadow
+        boxShadow: estilo.boxShadow,
+        ...estiloGratuito
       }}
     >
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
         <h2 style={{ margin: 0, color: estilo.color }}>{nombre}</h2>
-        <span style={{ padding: '4px 8px', borderRadius: '999px', backgroundColor: estilo.color, color: '#fff', fontSize: '0.8rem', fontWeight: '600' }}>
-          {tipoTexto}
-        </span>
+        <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+          {esGratuito && (
+            <span style={{ padding: '4px 8px', borderRadius: '999px', backgroundColor: '#16a34a', color: '#fff', fontSize: '0.8rem', fontWeight: '600' }}>
+              Gratis
+            </span>
+          )}
+          <span style={{ padding: '4px 8px', borderRadius: '999px', backgroundColor: estilo.color, color: '#fff', fontSize: '0.8rem', fontWeight: '600' }}>
+            {tipoTexto}
+          </span>
+        </div>
       </div>
       <p style={{ margin: '6px 0' }}><strong>Lugar:</strong> {lugar}</p>
       <p style={{ margin: '6px 0' }}><strong>Duración:</strong> {duracionTexto}</p>
@@ -65,7 +81,8 @@ EventoCard.propTypes = {
   duracion: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   tipo: PropTypes.string,
   descripcion: PropTypes.string,
-  fecha: PropTypes.string
+  fecha: PropTypes.string,
+  esGratuito: PropTypes.bool
 }
 
 EventoCard.defaultProps = {
@@ -74,7 +91,8 @@ EventoCard.defaultProps = {
   duracion: 0,
   tipo: 'Sin tipo',
   descripcion: 'Descripción no disponible',
-  fecha: 'Fecha no disponible'
+  fecha: 'Fecha no disponible',
+  esGratuito: false
 }
 
 export default EventoCard
